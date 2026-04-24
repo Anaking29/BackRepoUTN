@@ -77,7 +77,8 @@ class AuthService {
         },
       });
 
-      const verifyUrl = `http://localhost:5173/verify/${token}`; // Assuming frontend runs on 5173
+      const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
+      const verifyUrl = `${frontendUrl}/verify/${token}`;
       const message = {
         from: '"Event Manager" <noreply@eventmanager.com>',
         to: email,
